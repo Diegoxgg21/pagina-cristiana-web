@@ -1,0 +1,523 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+
+/* encabezados */
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 2rem 0;
+}
+
+/* header */
+
+.header {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin: auto;
+    max-width: 120rem;
+}
+
+.header .versiculo {
+    font-style: italic;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+
+/* barra de navegación */
+
+.navegacion {
+    background-color: #cbbc64;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    position: relative;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2.5rem;
+    height: 0.3rem;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 0.2rem;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(0.7rem, 0.7rem);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(0.7rem, -0.7rem);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 30rem;
+    height: 100vh;
+    background-color: #cbbc64;
+    display: flex;
+    flex-direction: column;
+    padding: 8rem 2rem 2rem;
+    gap: 1rem;
+    transition: right 0.3s ease;
+    z-index: 999;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu.active {
+    right: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem 1.2rem;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.menu a:hover {
+    background-color: #4d4802;
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        max-width: none;
+        height: auto;
+        padding: 0;
+        gap: 2rem;
+        box-shadow: none;
+        background-color: transparent;
+        margin: 0;
+    }
+
+    .menu a {
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+/* contenido index*/ 
+
+main {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+section {
+    margin-bottom: 5rem;
+}
+
+/* reflexiones y versiculo index*/
+
+.reflexion {
+    background-color: #f4f1ec;
+    padding: 3rem;
+    border-left: 5px solid #b2b35d;
+    border-radius: 1rem;
+}
+
+
+.listado-reflexiones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .listado-reflexiones {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+
+.versiculo-dia blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    background-color: #f4f1ec;
+    padding: 2rem;
+    border-left: 5px solid #b2b35d;
+}
+
+/* footer */
+
+.footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 1.4rem;
+}
+
+/* hero index*/
+
+.hero {
+    background-image: url("../img/iglesia.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 30rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        height: 45rem;
+    }
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-contenido {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.hero-contenido h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-contenido p {
+    font-size: 1.6rem;
+}
+
+@media (min-width: 768px) {
+    .hero-contenido h2 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-contenido p {
+        font-size: 1.8rem;
+    }
+}
+
+/* sobre nosotros */
+
+.hero-nosotros {
+    background-image: url("../img/iglesia 1.jpg");
+    height: 30rem;
+}
+
+@media (min-width: 768px) {
+    .hero-nosotros {
+        height: 50rem;
+    }
+}
+
+.nosotros {
+    max-width: 800px;
+    margin: 0 auto 5rem auto;
+    text-align: center;
+}
+
+.mision-vision {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .mision-vision {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+.mision,
+.vision {
+    background-color: #f4f1ec;
+    padding: 3rem;
+    border-radius: 1rem;
+    border-left: 5px solid #b2b35d;
+}
+
+.valores-contenido {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .valores-contenido {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 6rem;
+    }
+}
+
+.valores {
+    text-align: center;
+}
+
+.valores ul {
+    list-style: disc;
+    padding-left: 2rem;
+}
+
+.valores li {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+/* hero contacto */
+
+.hero-contacto {
+    background-image: url("../img/iglesia 2.jpg");
+    height: 30rem;
+}
+
+@media (min-width: 768px) {
+    .hero-contacto {
+        height: 45rem;
+    }
+}
+
+/* contacto */
+
+.contacto {
+    max-width: 1000px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+.contacto-contenido {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .contacto-contenido {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 4rem;
+    }
+}
+
+.info-contacto {
+    background-color: #f4f1ec;
+    padding: 3rem;
+    border-radius: 1rem;
+    border-left: 5px solid #b2b35d;
+}
+
+.formulario {
+    background-color: #f4f1ec;
+    padding: 3rem;
+    border-radius: 1rem;
+    border-left: 5px solid #b2b35d;
+}
+
+.campo {
+    margin-bottom: 2rem;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+    background-color: #cbbc64;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4d4802;
+}
+
+/* reflexiones */
+
+.hero-reflexiones {
+    background-image: url("../img/iglesia 3.jpg");
+    height: 30rem;
+}
+
+@media (min-width: 768px) {
+    .hero-reflexiones {
+        height: 45rem;
+    }
+}
+
+.reflexiones-pagina {
+    max-width: 1100px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+.grid-reflexiones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid-reflexiones {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-reflexiones {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.reflexion-card {
+    background-color: #f4f1ec;
+    padding: 3rem;
+    border-radius: 1rem;
+    border-left: 5px solid #b2b35d;
+    transition: transform 0.3s ease;
+}
+
+.reflexion-card:hover {
+    transform: scale(1.15);
+}
+
+/* versiculos */
+
+.hero-versiculos {
+    background-image: url("../img/iglesia 1.jpg");
+    height: 30rem;
+}
+
+@media (min-width: 768px) {
+    .hero-versiculos {
+        height: 45rem;
+    }
+}
+
+
+.versiculos-pagina {
+    max-width: 1200px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+.grid-versiculos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid-versiculos {
+        gap: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-versiculos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.versiculo-card {
+    background-color: #f4f1ec;
+    padding: 3rem;
+    border-left: 5px solid #b2b35d;
+    font-style: italic;
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.versiculo-card:hover {
+    transform: scale(1.15);
+}
+
+.cruz {
+    display: flex;
+    align-items: center;
+}
+
+.cruz img {
+    height: 60px;
+    width: auto;
+}
